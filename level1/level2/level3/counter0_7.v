@@ -1,6 +1,6 @@
 module counter0_7 (
     input wire clk,
-    input wire numpad_pressed,
+    input wire clear,
     output reg out
 );
 
@@ -12,13 +12,13 @@ initial begin // Valor inicial
     count <= 0;
 end
 
-always @(posedge numpad_pressed) begin // ativo quando um número do teclado é pressionado
+always @(posedge clear) begin // ativo quando um número do teclado é pressionado
     if (count == 3'd0) begin
         is_counting = 1;
     end
 end
 
-always @(negedge numpad_pressed) begin // quando o numero do teclado é solto, contagem vai até 7. 
+always @(negedge clear) begin // quando o numero do teclado é solto, contagem vai até 7. 
     if (count == 3'd7) begin
         is_counting = 0;
         count = 3'd0;
@@ -31,7 +31,7 @@ always @(posedge clk) begin
         count <= count + 1;
     end
 
-    if (count == 3'd3) begin
+    if (count == 3'd4) begin
         out <= 1;
     end
 end
