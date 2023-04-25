@@ -1,4 +1,4 @@
-`include "encoder.v"
+//`include "encoder.v"
 module encoder_test;
 reg [9:0] numpad;
 reg enable;
