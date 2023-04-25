@@ -7,19 +7,13 @@ sr_latch dut(S, R, Q, Q_bar);
 initial begin
     // Inputs
     S = 1;
-    R = 1;
+    R = 0;
 
-    #10 S = 0;
-    #10 S = 1;
-    #10 R = 0;
-    #10 R = 1;
-    #10 S = 0;
-         R = 0;
-    #10 S = 1;
-         R = 1;
-    #10 S = 0;
-         R = 0;
-    #10 $finish;
+    #100 S = 0;
+    #100 R = 1;
+    #100 R = 0;
+    #100 S = 1;
+    #100 $finish;
 end
 
 initial begin
