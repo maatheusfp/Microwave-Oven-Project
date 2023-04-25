@@ -15,7 +15,7 @@ module controler_test();
 
     initial clk = 0;
 
-    always #5 clk = ~clk; // 100Hz (logo, liga e desliga a cada 50 milisegundos)
+    always #5 clk = ~clk; //100Hz
 
     initial begin
         $dumpfile("controler.vcd");
@@ -39,35 +39,29 @@ module controler_test();
             #1100;
             keypad = 9'b000000000;
 
-            // Digitando o 5
+            // Digitando o 3
             #1100;
-            keypad = 9'b000100000;
-            #1100;
-            keypad = 9'b000000000;
-
-            // Digitando o 9
-            #1100;
-            keypad = 10'b1000000000;
+            keypad = 9'b000001000;
             #1100;
             keypad = 9'b000000000;
-
-            // Tentando abrir
-            #1100;
-            startn = 0;
-            #1100;
-            startn = 1;
-            #1100;
 
             // Fechando a porta
+            #100;
             door_closed = 1;
-            #1000;
 
             // Abrindo
+            #1000;
             startn = 0;
             #1000;
             startn = 1;
 
-            #300000;
+            // Desligando prematuramente
+            #10000
+            stopn = 0;
+            #1000;
+            stopn = 1;
+
+            #14000;
             $finish();
     end
 
