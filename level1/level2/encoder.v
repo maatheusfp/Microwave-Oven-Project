@@ -32,7 +32,7 @@ module encoder(
     assign loadn = ~numpad_pressed;
 
     encoder_dec_bcd dec_to_bcd(.decimal(numpad), .enablen(enablen), .bcd(D));
-    counter0_7 debouncer(.clk(clk), .numpad_pressed(numpad_pressed), .out(mux_d0));
+    counter0_7 debouncer(.clk(clk), .clear(numpad_pressed), .out(mux_d0));
     counterdiv100 div100(.clk(clk), .clk_out(mux_d1));
     mux2_1 mux(.selector(enablen), .d0(mux_d0), .d1(mux_d1), .out(pgt_1Hz));
 
