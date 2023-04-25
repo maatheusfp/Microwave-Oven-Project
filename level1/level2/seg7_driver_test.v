@@ -1,4 +1,4 @@
-`include "seg7_driver.v"
+//`include "seg7_driver.v"
 
 module seg7_driver_test();
 reg [3:0] seconds_ones, seconds_tens, minutes;

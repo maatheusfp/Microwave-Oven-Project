@@ -1,4 +1,4 @@
-`include "control.v"
+//`include "control.v"
 module control_test();
 reg startn;
 reg stopn;
